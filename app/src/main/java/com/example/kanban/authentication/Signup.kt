@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.kanban.R
+import com.example.kanban.database
 import com.example.kanban.databinding.ActivitySignupBinding
 import com.example.kanban.tables.Users
 import com.google.android.gms.tasks.OnFailureListener
@@ -23,12 +24,12 @@ import kotlinx.coroutines.launch
 
 class Signup : AppCompatActivity() {
     lateinit var signupBinding: ActivitySignupBinding
-    lateinit var database: DatabaseReference
+//    lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         signupBinding = DataBindingUtil.setContentView(this@Signup, R.layout.activity_signup)
 
-        database = Firebase.database.reference
+//        database = Firebase.database.reference
 
         database.child("Users").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -60,7 +61,7 @@ class Signup : AppCompatActivity() {
     }
 
     fun writeNewUser(name: String, username: String, password: String) {
-        val user = Users(name,password)
+        val user = Users(name=name,username, password = password)
         database.child("Users").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 var usernameExists = false

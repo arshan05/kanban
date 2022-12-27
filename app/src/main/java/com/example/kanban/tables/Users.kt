@@ -1,6 +1,5 @@
 package com.example.kanban.tables
 
-import com.google.firebase.database.IgnoreExtraProperties
 
-@IgnoreExtraProperties
-data class Users(val name:String ?= null,val password: String ?= null)
+data class Users(var name:String? = "", var username:String? ="", var password: String? = "")
+
