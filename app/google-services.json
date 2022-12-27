@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "121054155495",
+    "project_id": "kanban-ee590",
+    "storage_bucket": "kanban-ee590.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121054155495:android:73bd9383d179486ac34842",
+        "android_client_info": {
+          "package_name": "com.example.kanban"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121054155495-ondd8nf2qfculk29pojdvloqk24th1gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHjiosjY2gZ4SGl2ek18habhUenSsmgRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121054155495-ondd8nf2qfculk29pojdvloqk24th1gf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
