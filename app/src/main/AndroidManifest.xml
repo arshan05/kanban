@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Kanban"
         tools:targetApi="31">
         <activity
-            android:name=".projectItem"
+            android:name=".project.ProjectDetailed"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

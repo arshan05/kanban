@@ -5,27 +5,20 @@
 
     <data>
         <variable
-            name="user"
-            type="com.example.kanban.tables.Users" />
+            name="projectData"
+            type="com.example.kanban.tables.Projects" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".homescreen.Homescreen">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.name}"
-            android:textSize="24sp"
-            />
+        >
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/projectNameInput"
+            android:id="@+id/taskNameInput"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Project"
+            android:hint="Tasks"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -35,7 +28,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/addProjectBtn"
+            android:id="@+id/addTaskBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -44,11 +37,27 @@
             style="@style/Widget.MaterialComponents.Button"
             />
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{projectData.project_name}"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{projectData.project_id}"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{projectData.owner}"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/projectDisplayRecyclerView"
+            android:id="@+id/tasksRecyclerView"
             />
-
     </LinearLayout>
 </layout>

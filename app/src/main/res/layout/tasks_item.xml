@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="project"
-            type="com.example.kanban.tables.Projects" />
+            name="task"
+            type="com.example.kanban.tables.Tasks" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -17,31 +18,21 @@
         android:elevation="14dp"
         android:backgroundTint="@color/secondary_800"
         >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:context=".projectItem">
+            android:layout_height="match_parent"
+            tools:context=".tasksItem">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/projectNameDisplayInHomeScreen"
-                android:text="@{project.project_name}"
-                android:layout_marginHorizontal="10dp"
-                android:textColor="@color/white"
+                android:text="@{task.task_name}"
                 android:textSize="24sp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/projectOwnerNameDisplayInHomeScreen"
-                android:layout_marginHorizontal="10dp"
+                android:layout_margin="10dp"
                 android:textColor="@color/white"
-                android:text="@{project.owner}"
-                android:textSize="24sp"
                 />
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </layout>
