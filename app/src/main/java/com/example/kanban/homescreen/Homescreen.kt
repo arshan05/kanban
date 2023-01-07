@@ -17,6 +17,7 @@ import com.example.kanban.databinding.ActivityHomescreenBinding
 import com.example.kanban.project.ProjectDetailed
 import com.example.kanban.tables.Projects
 import com.example.kanban.tables.Users
+import com.example.kanban.tables.Users_Projects
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -45,6 +46,13 @@ class Homescreen : AppCompatActivity(), ProjectCardViewClickListener {
                 owner = currentUser.username.toString()
             )
             newProject.setValue(project)
+
+            val userProject = database.child("Users_Projects").push()
+            val usersProjects = Users_Projects(
+                user_id = currentUser.username,
+                project_id = newProject.key
+            )
+            userProject.setValue(usersProjects)
         }
 
         homescreenBinding.projectDisplayRecyclerView.layoutManager =

@@ -1,5 +1,6 @@
 package com.example.kanban.project
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -9,6 +10,7 @@ import com.example.kanban.R
 import com.example.kanban.currentUser
 import com.example.kanban.database
 import com.example.kanban.databinding.ActivityProjectDetailedBinding
+import com.example.kanban.invitations.InviteUser
 import com.example.kanban.tables.Projects
 import com.example.kanban.tables.Tasks
 import com.google.firebase.database.DataSnapshot
@@ -25,6 +27,12 @@ class ProjectDetailed : AppCompatActivity() {
         val data = intent.getSerializableExtra("projectData") as? Projects
         projectDetailedBinding.projectData = data
 
+        projectDetailedBinding.inviteBtn.setOnClickListener{
+            val intent = Intent(this, InviteUser::class.java)
+            intent.putExtra("projectData", data)
+            startActivity(intent)
+        }
+
         projectDetailedBinding.addTaskBtn.setOnClickListener{
             val newTask = database.child("Tasks").push()
             val task = Tasks(
@@ -35,6 +43,7 @@ class ProjectDetailed : AppCompatActivity() {
                 assigned_id = null
             )
             newTask.setValue(task)
+
         }
 
         projectDetailedBinding.tasksRecyclerView.layoutManager = LinearLayoutManager(applicationContext,RecyclerView.VERTICAL, false)

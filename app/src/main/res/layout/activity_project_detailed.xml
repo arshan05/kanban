@@ -15,6 +15,14 @@
         android:orientation="vertical"
         >
 
+        <Button
+            android:id="@+id/inviteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invite"
+            android:textAllCaps="false"
+            />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/taskNameInput"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
