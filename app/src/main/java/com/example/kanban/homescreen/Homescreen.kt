@@ -14,6 +14,7 @@ import com.example.kanban.R
 import com.example.kanban.currentUser
 import com.example.kanban.database
 import com.example.kanban.databinding.ActivityHomescreenBinding
+import com.example.kanban.invitations.AllInvitations
 import com.example.kanban.project.ProjectDetailed
 import com.example.kanban.tables.Projects
 import com.example.kanban.tables.Users
@@ -34,8 +35,14 @@ class Homescreen : AppCompatActivity(), ProjectCardViewClickListener {
 
 
 
-        currentUser = Users("Darshan", "darshan", "pass123")
+//        currentUser = Users("user", "user", "123")
+//        currentUser = Users("Darshan", "darshan", "")
         homescreenBinding.user = currentUser
+
+        homescreenBinding.invitationsReceivedOrSent.setOnClickListener{
+            val intent = Intent(this@Homescreen, AllInvitations::class.java)
+            startActivity(intent)
+        }
 
 
         homescreenBinding.addProjectBtn.setOnClickListener {
