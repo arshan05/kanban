@@ -12,6 +12,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".authentication.Signup">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppFontBold"
+            android:text="Kanban."
+            android:layout_margin="10dp"
+            android:textColor="@color/textBlack"
+            android:textSize="64sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppFontBold"
+            android:text="Sign up"
+            android:layout_margin="10dp"
+            android:textColor="@color/textBlack"
+            android:textSize="32sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_margin="10dp"
@@ -19,12 +36,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="enter name"
+            android:layout_marginHorizontal="10dp"
+            app:startIconDrawable="@drawable/account"
             app:endIconMode="clear_text"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/AppFont"
+                android:textSize="16sp"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -34,12 +55,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="enter username"
+            app:startIconDrawable="@drawable/at"
             app:endIconMode="clear_text"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/AppFont"
+                android:textSize="16sp"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -49,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="enter password"
-
+            app:startIconDrawable="@drawable/password"
             app:endIconMode="password_toggle"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -57,18 +81,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                style="@style/AppFont"
+                android:textSize="16sp"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/signupBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="Signup"
+            android:text="Sign up"
+            android:textSize="16sp"
+            android:paddingVertical="10dp"
             android:textAllCaps="false"
             android:layout_gravity="center"
-            style="?attr/materialButtonOutlinedStyle"
+            android:textAppearance="@style/AppFontBold"
+            android:textColor="@color/white"
             />
 
     </LinearLayout>

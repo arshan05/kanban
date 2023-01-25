@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Kanban" parent="Theme.MaterialComponents.Light">
+    <style name="Theme.Kanban" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary_200</item>
-        <item name="colorPrimaryVariant">@color/primary_800</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/primary_light</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_200</item>
         <item name="colorSecondaryVariant">@color/secondary_800</item>
@@ -12,5 +12,19 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:background">@color/appBackground</item>
+    </style>
+
+    <style name="AppFont" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/noto_sans</item>
+    </style>
+    <style name="AppFontItalic" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/noto_sans_italic</item>
+    </style>
+    <style name="AppFontBold" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/noto_sans_bold</item>
+    </style>
+    <style name="AppFontBoldItalic" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/noto_sans_bold_italic</item>
     </style>
 </resources>

@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary_200">#FFCC80</color>
-    <color name="primary_500">#FF9800</color>
-    <color name="primary_800">#EF6C00</color>
+    <color name="primary_light">#1F54D3</color>
+    <color name="primary">#0122fb</color>
+    <color name="primary_dark">#0000c6</color>
     <color name="secondary_200">#CE93D8</color>
     <color name="secondary_800">#6A1B9A</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="textBlack">#FF1E2944</color>
+
+    <color name="appBackground">#FBFCFD</color>
 </resources>

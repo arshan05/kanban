@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.example.kanban.Drawer
 import com.example.kanban.R
 import com.example.kanban.currentUser
 import com.example.kanban.database
@@ -38,7 +39,7 @@ class Login : AppCompatActivity() {
                             if (users?.password == loginBinding.passwordLoginInput.editText?.text.toString()) {
                                 currentUser = Users(users.name, users.username, users.password)
                                 incorrectPassword = false
-                                val intent = Intent(this@Login, Homescreen::class.java)
+                                val intent = Intent(this@Login, Drawer::class.java)
                                 startActivity(intent)
                             }
                         }

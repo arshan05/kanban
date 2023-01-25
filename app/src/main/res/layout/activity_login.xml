@@ -13,19 +13,40 @@
         android:orientation="vertical"
         tools:context=".authentication.Login">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppFontBold"
+            android:text="Kanban."
             android:layout_margin="10dp"
+            android:textColor="@color/textBlack"
+            android:textSize="64sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppFontBold"
+            android:text="Sign in"
+            android:layout_margin="10dp"
+            android:textColor="@color/textBlack"
+            android:textSize="32sp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/usernameLoginInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
             android:hint="Username"
-            app:helperText="enter username"
             app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/at"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                style="@style/AppFont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="16sp"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -36,26 +57,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
-            app:helperText="enter password"
+            app:startIconDrawable="@drawable/password"
             app:endIconMode="password_toggle"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/AppFont"
                 android:inputType="textPassword"
+                android:textSize="16sp"
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/loginBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="Sign in"
+            android:textSize="16sp"
+            android:paddingVertical="10dp"
             android:textAllCaps="false"
             android:layout_gravity="center"
-            style="?attr/materialButtonOutlinedStyle"
+            android:textAppearance="@style/AppFontBold"
+            android:textColor="@color/white"
             />
 
         <LinearLayout
@@ -66,14 +93,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAppearance="@style/AppFont"
                 android:text="new to kanban?"
+                android:textSize="16sp"
                 />
             <Button
                 android:id="@+id/redirectToSignup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="Signup"
+                android:text="Register"
+                android:textSize="16sp"
+                android:padding="4dp"
+                android:layout_margin="0dp"
+                android:gravity="start|center_vertical"
+                android:textAppearance="@style/AppFontBold"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 />
         </LinearLayout>
