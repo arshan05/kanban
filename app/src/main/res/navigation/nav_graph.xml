@@ -13,5 +13,10 @@
         android:id="@+id/invitations"
         android:name="com.example.kanban.invitations.AllInvitationsFragment"
         tools:layout="@layout/fragment_all_invitations" />
+    <fragment
+        android:id="@+id/projectDetailed"
+        android:name="com.example.kanban.project.ProjectDetailedFragment"
+        tools:layout="@layout/fragment_project_detailed"
+        />
 
 </navigation>

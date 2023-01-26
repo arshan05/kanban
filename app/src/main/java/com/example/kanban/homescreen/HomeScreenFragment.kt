@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kanban.R
@@ -14,6 +15,7 @@ import com.example.kanban.currentUser
 import com.example.kanban.database
 import com.example.kanban.databinding.FragmentHomeScreenBinding
 import com.example.kanban.project.ProjectDetailed
+import com.example.kanban.project.ProjectDetailedFragment
 import com.example.kanban.tables.Projects
 import com.example.kanban.tables.Users_Projects
 import com.google.firebase.database.DataSnapshot
@@ -87,9 +89,21 @@ class HomeScreenFragment : Fragment(),ProjectCardViewClickListener {
 
     }
     override fun onItemClicked(data: Projects) {
-        val intent = Intent(view?.context, ProjectDetailed::class.java)
-        intent.putExtra("projectData", data )
-        startActivity(intent)
+        val dataBundle = Bundle()
+        dataBundle.putSerializable("project_data",data)
+        val fragmentManager = parentFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        val destination = ProjectDetailedFragment()
+        destination.arguments = dataBundle
+
+        fragmentTransaction.replace(R.id.nav_host_fragment, destination)
+        fragmentTransaction.addToBackStack(null)
+        fragmentManager.popBackStack()
+        fragmentTransaction.commit()
+
+//        val intent = Intent(view?.context, ProjectDetailed::class.java)
+//        intent.putExtra("projectData", data )
+//        startActivity(intent)
     }
 
     companion object {
