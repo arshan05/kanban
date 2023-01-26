@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="user"
-            type="com.example.kanban.tables.Users" />
+            type="com.example.kanban.tables.Users"/>
     </data>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".homescreen.Homescreen">
-
+        android:layout_marginTop="?attr/actionBarSize"
+        tools:context=".homescreen.HomeScreenFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +60,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
     </LinearLayout>
-
-
 </layout>

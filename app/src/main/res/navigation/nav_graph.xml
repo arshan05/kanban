@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/home"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.kanban.homescreen.HomeScreenFragment"
+        tools:layout="@layout/fragment_home_screen"/>
+    <fragment
+        android:id="@+id/invitations"
+        android:name="com.example.kanban.invitations.AllInvitationsFragment"
+        tools:layout="@layout/fragment_all_invitations" />
+
+</navigation>

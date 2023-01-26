@@ -15,7 +15,6 @@ import com.example.kanban.R
 import com.example.kanban.currentUser
 import com.example.kanban.database
 import com.example.kanban.databinding.ActivityHomescreenBinding
-import com.example.kanban.databinding.NavigationDrawerBinding
 import com.example.kanban.invitations.AllInvitations
 import com.example.kanban.project.ProjectDetailed
 import com.example.kanban.tables.Projects
@@ -30,12 +29,12 @@ import kotlin.reflect.typeOf
 
 class Homescreen : AppCompatActivity(), ProjectCardViewClickListener {
     lateinit var homescreenBinding: ActivityHomescreenBinding
-    lateinit var navigationDrawerBinding: NavigationDrawerBinding
+//    lateinit var navigationDrawerBinding: NavigationDrawerBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         homescreenBinding =
             DataBindingUtil.setContentView(this@Homescreen, R.layout.activity_homescreen)
-        navigationDrawerBinding = DataBindingUtil.setContentView(this@Homescreen, R.layout.navigation_drawer)
+//        navigationDrawerBinding = DataBindingUtil.setContentView(this@Homescreen, R.layout.navigation_drawer)
 
 //        setSupportActionBar(navigationDrawerBinding.topAppBar)
 //        navigationDrawerBinding.topAppBar.setNavigationOnClickListener {
