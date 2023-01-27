@@ -9,7 +9,6 @@ import com.example.kanban.R
 import com.example.kanban.currentUser
 import com.example.kanban.database
 import com.example.kanban.databinding.ActivityLoginBinding
-import com.example.kanban.homescreen.Homescreen
 import com.example.kanban.tables.Users
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DataSnapshot

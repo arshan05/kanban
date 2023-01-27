@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kanban.R
 import com.example.kanban.database
 import com.example.kanban.databinding.FragmentProjectDetailedBinding
-import com.example.kanban.invitations.InviteUser
+import com.example.kanban.invitations.InviteUserFragment
 import com.example.kanban.tables.Projects
 import com.example.kanban.tables.Tasks
 import com.google.firebase.database.DataSnapshot
@@ -41,9 +41,19 @@ class ProjectDetailedFragment : Fragment() {
         projectDetailedBinding.projectData = data
 
         projectDetailedBinding.inviteBtn.setOnClickListener{
-            val intent = Intent(view.context, InviteUser::class.java)
-            intent.putExtra("projectData", data)
-            startActivity(intent)
+
+            val dataBundle = Bundle()
+            dataBundle.putSerializable("project_data",data)
+            val fragmentManager = parentFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            val destination = InviteUserFragment()
+            destination.arguments = dataBundle
+
+            fragmentTransaction.replace(R.id.nav_host_fragment, destination)
+            fragmentTransaction.addToBackStack(null)
+            fragmentManager.popBackStack()
+            fragmentTransaction.commit()
+
         }
 
         projectDetailedBinding.addTaskBtn.setOnClickListener{

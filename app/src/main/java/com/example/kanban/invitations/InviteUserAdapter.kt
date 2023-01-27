@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kanban.currentUser
 import com.example.kanban.database
-import com.example.kanban.databinding.ActivityInviteUserBinding
 import com.example.kanban.databinding.ActivityProjectItemBinding
 import com.example.kanban.databinding.UserListItemBinding
 import com.example.kanban.homescreen.ProjectCardViewClickListener

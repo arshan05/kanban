@@ -14,7 +14,6 @@ import com.example.kanban.R
 import com.example.kanban.currentUser
 import com.example.kanban.database
 import com.example.kanban.databinding.FragmentHomeScreenBinding
-import com.example.kanban.project.ProjectDetailed
 import com.example.kanban.project.ProjectDetailedFragment
 import com.example.kanban.tables.Projects
 import com.example.kanban.tables.Users_Projects

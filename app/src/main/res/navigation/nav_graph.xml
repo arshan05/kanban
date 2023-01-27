@@ -18,5 +18,10 @@
         android:name="com.example.kanban.project.ProjectDetailedFragment"
         tools:layout="@layout/fragment_project_detailed"
         />
+    <fragment
+        android:id="@+id/inviteUser"
+        android:name="com.example.kanban.invitations.InviteUserFragment"
+        tools:layout="@layout/fragment_invite_user"
+        />
 
 </navigation>
