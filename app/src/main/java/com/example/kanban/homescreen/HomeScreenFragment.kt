@@ -16,6 +16,7 @@ import com.example.kanban.database
 import com.example.kanban.databinding.FragmentHomeScreenBinding
 import com.example.kanban.project.ProjectDetailedFragment
 import com.example.kanban.tables.Projects
+import com.example.kanban.tables.Users
 import com.example.kanban.tables.Users_Projects
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -40,8 +41,8 @@ class HomeScreenFragment : Fragment(),ProjectCardViewClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        homeScreenBinding.user = currentUser
+        homeScreenBinding.user = Users("1","1","1")
+//        homeScreenBinding.user = currentUser
 
 
         homeScreenBinding.addProjectBtn.setOnClickListener {

@@ -5,14 +5,10 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:navigationIcon="@drawable/menu"
     tools:openDrawer="start">
 
-    <include
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        app:navigationIcon="@drawable/menu"
-        layout="@layout/app_bar"/>
+    <include layout="@layout/app_bar"/>
+
 
     <fragment
         android:id="@+id/nav_host_fragment"
@@ -33,3 +29,7 @@
         app:menu="@menu/temp" />
 </androidx.drawerlayout.widget.DrawerLayout>
 
+<!--<include-->
+<!--android:layout_height="match_parent"-->
+<!--android:layout_width="match_parent"-->
+<!--layout="@layout/app_bar"/>-->

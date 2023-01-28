@@ -1,5 +1,6 @@
 package com.example.kanban
 
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -23,6 +24,7 @@ class Drawer : AppCompatActivity() {
 
         val toolbar = findViewById<MaterialToolbar>(R.id.topAppBar)
         setSupportActionBar(toolbar)
+//        toolbar.navigationIcon = resources.getDrawable(R.drawable.menu)
 
         drawerLayout = findViewById(R.id.drawer_layout)
 
