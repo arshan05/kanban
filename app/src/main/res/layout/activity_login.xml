@@ -14,12 +14,12 @@
         tools:context=".authentication.Login">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/loginKanbanText"
             style="@style/AppFontBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
             android:text="Kanban."
-            android:layout_margin="10dp"
             android:textColor="@color/textBlack"
             android:textSize="64sp" />
 
@@ -46,11 +46,11 @@
                     android:textSize="32sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/usernameLoginInput"
+                    android:id="@+id/emailLoginInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:hint="Username"
+                    android:hint="email"
                     app:endIconMode="clear_text"
                     app:startIconDrawable="@drawable/at"
                     app:startIconTint="@color/textBlack"
@@ -60,6 +60,7 @@
                         style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
                         android:textSize="16sp"
                         />
 
@@ -148,7 +149,7 @@
             android:layout_alignParentBottom="true"
 
             android:layout_width="wrap_content"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:src="@drawable/login_screen_image"
             />
     </RelativeLayout>
