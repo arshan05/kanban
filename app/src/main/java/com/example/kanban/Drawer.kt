@@ -1,14 +1,18 @@
 package com.example.kanban
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
+import com.example.kanban.authentication.Login
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -32,39 +36,40 @@ class Drawer : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
 
         setupActionBarWithNavController(navController, appBarConfiguration)
-        findViewById<NavigationView>(R.id.navigationView).setupWithNavController(navController)
+        navView = findViewById<NavigationView>(R.id.navigationView)
+        navView.setupWithNavController(navController)
+        val logOut = navView.menu.findItem(R.id.logout)
+        logOut.setOnMenuItemClickListener {
+            it.isChecked = true
+            drawerLayout.close()
 
-//        drawerLayout = findViewById(R.id.drawer_layout)
-//        actionBarToggle = ActionBarDrawerToggle(this, drawerLayout, 0, 0)
-//        drawerLayout.addDrawerListener(actionBarToggle)
+            val sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.remove("is_logged_in")
+            editor.apply()
+            val intent = Intent(this,Login::class.java)
+            startActivity(intent)
+            true
+        }
+//        navView.setNavigationItemSelectedListener {
+//            if (it.itemId == R.id.logout){
+//                it.isChecked = true
+//                drawerLayout.close()
 //
-//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        actionBarToggle.syncState()
-//
-//        navView = findViewById(R.id.navigationView)
-
-//        setSupportActionBar(findViewById<MaterialToolbar>(R.id.topAppBar))
-//        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-//        navController = findNavController(R.id.nav_host_fragment_container)
-//        val navigationView = findViewById<NavigationView>(R.id.bottomNavigationView)
-//
-//        appBarConfiguration = AppBarConfiguration(setOf(
-//            R.id.home, R.id.invitations), drawerLayout)
-//
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navigationView.setupWithNavController(navController)
-
-//        val navigationView = findViewById<NavigationView>(R.id.bottomNavigationView)
-//
-//        val navControllerFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
-//        navController = navControllerFragment.navController
-//        NavigationUI.setupWithNavController(navigationView, navController)
+//                val sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE)
+//                val editor = sharedPreferences.edit()
+//                editor.remove("is_logged_in")
+//                editor.apply()
+//                val intent = Intent(this,Login::class.java)
+//                startActivity(intent)
+//            }
+//            else {
+//                navView.setupWithNavController(navController)
+//            }
+//            true
+//        }
     }
-//    override fun onSupportNavigateUp(): Boolean {
-//        return findNavController(R.id.nav_host_fragment).navigateUp(drawerLayout)
-//    }
 
-    // override the onBackPressed() function to close the Drawer when the back button is clicked
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

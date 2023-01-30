@@ -50,9 +50,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
-                    android:hint="email"
+                    android:hint="Email"
                     app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/at"
+                    app:startIconDrawable="@drawable/email"
                     app:startIconTint="@color/textBlack"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 

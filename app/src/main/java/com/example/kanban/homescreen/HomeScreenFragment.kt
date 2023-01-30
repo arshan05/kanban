@@ -1,5 +1,6 @@
 package com.example.kanban.homescreen
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,9 +19,11 @@ import com.example.kanban.project.ProjectDetailedFragment
 import com.example.kanban.tables.Projects
 import com.example.kanban.tables.Users
 import com.example.kanban.tables.Users_Projects
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
 
 class HomeScreenFragment : Fragment(),ProjectCardViewClickListener {
 
@@ -41,8 +44,14 @@ class HomeScreenFragment : Fragment(),ProjectCardViewClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeScreenBinding.user = Users("1","1","1")
-//        homeScreenBinding.user = currentUser
+//        homeScreenBinding.user = Users("1","1","1")
+        val credSharedPref = view.context.getSharedPreferences("user",Context.MODE_PRIVATE)
+        val sharedPrefUser = credSharedPref.getString("name","defaultName")
+        val sharedPrefUserName = credSharedPref.getString("username","defaultUserName")
+        val sharedPrefUserEmail = credSharedPref.getString("email","defaultEmail")
+
+
+        homeScreenBinding.user = Users(name = sharedPrefUser, username = sharedPrefUserName, email = sharedPrefUserEmail)
 
 
         homeScreenBinding.addProjectBtn.setOnClickListener {
@@ -63,7 +72,7 @@ class HomeScreenFragment : Fragment(),ProjectCardViewClickListener {
         }
 
         homeScreenBinding.projectDisplayRecyclerView.layoutManager =
-            LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
+            LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
         val adapter = HomeScreenAdapter(this)
         homeScreenBinding.projectDisplayRecyclerView.adapter = adapter
 

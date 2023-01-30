@@ -51,7 +51,7 @@
                     android:id="@+id/nameSignupInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="enter name"
+                    android:hint="Name"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginVertical="0dp"
                     app:startIconDrawable="@drawable/account"
@@ -71,7 +71,7 @@
                     android:id="@+id/usernameSignupInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="enter username"
+                    android:hint="Username"
                     app:startIconDrawable="@drawable/at"
                     app:endIconMode="clear_text"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -90,8 +90,9 @@
                     android:id="@+id/emailSignupInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="enter email address"
-                    app:startIconDrawable="@drawable/password"
+                    android:hint="Email"
+                    app:startIconDrawable="@drawable/email"
+                    app:startIconTint="@color/textBlack"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -110,7 +111,7 @@
                     android:id="@+id/paswordSignupInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="enter password"
+                    android:hint="Password"
                     app:startIconDrawable="@drawable/password"
                     app:endIconMode="password_toggle"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -130,18 +131,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:orientation="horizontal">
-                    <Button
-                        android:id="@+id/verifyEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Verify"
-                        android:textSize="16sp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="10dp"
-                        android:textAllCaps="false"
-                        android:textAppearance="@style/AppFontBold"
-                        android:textColor="@color/white"
-                        />
 
                     <Button
                         android:id="@+id/signupBtn"
@@ -149,7 +138,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Register"
-                        android:enabled="false"
+                        android:enabled="true"
                         android:textSize="16sp"
                         android:textAllCaps="false"
                         android:textAppearance="@style/AppFontBold"

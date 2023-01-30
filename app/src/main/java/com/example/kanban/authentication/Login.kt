@@ -1,9 +1,12 @@
 package com.example.kanban.authentication
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Email
 import android.text.InputType
+import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +16,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.slidingpanelayout.widget.SlidingPaneLayout.LayoutParams
 import com.example.kanban.Drawer
 import com.example.kanban.R
+import com.example.kanban.currentUser
+import com.example.kanban.database
 import com.example.kanban.databinding.ActivityLoginBinding
+import com.example.kanban.tables.Users
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 
 class Login : AppCompatActivity() {
@@ -68,8 +77,41 @@ class Login : AppCompatActivity() {
             var password = loginBinding.passwordLoginInput.editText?.text.toString()
 
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(){
-                auth.currentUser!!.isEmailVerified()
-                if (it.isSuccessful && auth.currentUser!!.isEmailVerified()){
+//                auth.currentUser!!.isEmailVerified()
+                if (it.isSuccessful){
+                    // shared preferences for storing bool for login
+
+                    database.child("Users").child(auth.currentUser!!.uid).get().addOnSuccessListener {
+                        val user = it.getValue(Users::class.java)
+                        Log.d("user", "${user?.username}")
+                        val credSharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE)
+                        val editor = credSharedPreferences.edit()
+                        editor.putString("name","${user?.name}")
+                        editor.putString("username","${user?.username}")
+                        editor.putString("email","${user?.email}")
+                        Log.d("user: ","${user?.name} ${user?.username} ${user?.email}")
+                        editor.apply()
+                    }
+
+//                    database.child("Users").addValueEventListener(object : ValueEventListener {
+//                        override fun onDataChange(snapshot: DataSnapshot) {
+//                            snapshot.children.forEach{
+//                                val user = it.getValue(Users::class.java)
+//                                if (it.key ==  auth.currentUser!!.uid){
+//                                    currentUser = Users(user?.name, user?.username)
+//                                    Log.d("username: ","${currentUser.username} ${user?.username}")
+//                                }
+//                            }
+//                        }
+//
+//                        override fun onCancelled(error: DatabaseError) {
+//                        }
+//                    })
+
+                    val sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putBoolean("is_logged_in", true)
+                    editor.apply()
                     val intent = Intent(this,Drawer::class.java)
                     startActivity(intent)
                 }

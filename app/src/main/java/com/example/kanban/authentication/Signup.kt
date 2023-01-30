@@ -40,13 +40,13 @@ class Signup : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
-        signupBinding.verifyEmail.setOnClickListener() {
-            if (auth.currentUser!!.isEmailVerified()) {
-                signupBinding.signupBtn.isEnabled = true
-            } else {
-                Toast.makeText(this@Signup, "Your Email is not Verified", Toast.LENGTH_SHORT).show()
-            }
-        }
+//        signupBinding.verifyEmail.setOnClickListener() {
+//            if (auth.currentUser!!.isEmailVerified()) {
+//                signupBinding.signupBtn.isEnabled = true
+//            } else {
+//                Toast.makeText(this@Signup, "Your Email is not Verified", Toast.LENGTH_SHORT).show()
+//            }
+//        }
 
         signupBinding.signupBtn.setOnClickListener {
             writeNewUser(
@@ -80,7 +80,7 @@ class Signup : AppCompatActivity() {
                                 if (it.isSuccessful) {
 
                                     database.getReference().child("Users")
-                                        .child(username).setValue(user)
+                                        .child(auth.currentUser!!.uid).setValue(user)
                                     signupBinding.usernameSignupInput.isErrorEnabled =
                                         false
                                     val intent = Intent(this@Signup, Login::class.java)

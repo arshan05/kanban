@@ -13,5 +13,10 @@
             android:id="@+id/invitations"
             android:icon="@drawable/invitation"
             android:title="invitation" />
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/exit"
+            android:title="log out" />
     </group>
 </menu>

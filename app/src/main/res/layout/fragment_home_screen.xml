@@ -8,22 +8,56 @@
             type="com.example.kanban.tables.Users"/>
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         tools:context=".homescreen.HomeScreenFragment">
 
+        <TextView
+            android:id="@+id/helloTextDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text= "@{@string/hello(user.name)}"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            style="@style/AppFontBold"
+            android:textSize="32sp"
+            />
+
+        <TextView
+            android:id="@+id/projectTextDisplay"
+            style="@style/AppFontBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/helloTextDisplay"
+            android:layout_marginHorizontal="10dp"
+            android:text="Projects"
+            android:textColor="@color/textBlack"
+            android:textSize="24sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/projectDisplayRecyclerView"
+            android:layout_below="@+id/projectTextDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/ToDo"
+            style="@style/AppFontBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/projectDisplayRecyclerView"
+            android:layout_marginHorizontal="10dp"
+            android:text="To Do"
+            android:textColor="@color/textBlack"
+            android:textSize="24sp" />
+
         <LinearLayout
+            android:layout_below="@+id/ToDo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{user.name}"
-                android:textSize="24sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/projectNameInput"
@@ -47,11 +81,7 @@
                 android:text="Add"
                 android:textAllCaps="false" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/projectDisplayRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 </layout>
