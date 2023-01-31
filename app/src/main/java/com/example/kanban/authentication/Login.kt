@@ -114,6 +114,7 @@ class Login : AppCompatActivity() {
                     editor.apply()
                     val intent = Intent(this,Drawer::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 else{
                     Toast.makeText(this, "invalid user", Toast.LENGTH_SHORT).show()

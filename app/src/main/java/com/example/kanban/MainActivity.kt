@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         }else{
             val i = Intent(this@MainActivity, Drawer::class.java)
             startActivity(i)
+            finish()
         }
     }
 }

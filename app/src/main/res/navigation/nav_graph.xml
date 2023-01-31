@@ -10,6 +10,10 @@
         android:name="com.example.kanban.homescreen.HomeScreenFragment"
         tools:layout="@layout/fragment_home_screen"/>
     <fragment
+        android:id="@+id/profile"
+        android:name="com.example.kanban.authentication.ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+    <fragment
         android:id="@+id/invitations"
         android:name="com.example.kanban.invitations.AllInvitationsFragment"
         tools:layout="@layout/fragment_all_invitations" />
