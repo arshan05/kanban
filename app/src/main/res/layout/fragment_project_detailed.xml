@@ -1,69 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="projectData"
             type="com.example.kanban.tables.Projects" />
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical"
         tools:context=".project.ProjectDetailedFragment">
 
-        <Button
-            android:id="@+id/inviteBtn"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profilePicHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Invite"
-            android:textAllCaps="false" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/taskNameInput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:padding="10px"
+            android:elevation="10dp"
+            app:cardCornerRadius="10dp"
             android:layout_margin="10dp"
-            android:hint="Tasks">
+            android:backgroundTint="@color/textBlack"
+            >
+            <ImageView
+                android:backgroundTint="@android:color/transparent"
+                android:id="@+id/profilePicImageView"
+                android:layout_width="256px"
+                android:layout_height="256px"
+                android:layout_gravity="center"
+                android:src="@drawable/profile_pic_icon"
+                android:contentDescription="profile image" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/addTaskBtn"
-            style="@style/Widget.MaterialComponents.Button"
+        <TextView
+            android:id="@+id/projectNameDisplayInDetailedPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Add"
-            android:textAllCaps="false" />
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{projectData.project_name}" />
+            android:text="@{projectData.project_name}"
+            android:textSize="24sp"
+            style="@style/AppFontBold"
+            android:layout_toRightOf="@+id/profilePicHolder"
+            />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{projectData.project_id}" />
+            android:text="{projectData.deadline}"
+            android:textSize="16sp"
+            android:layout_toRightOf="@+id/profilePicHolder"
+            android:layout_below="@+id/projectNameDisplayInDetailedPage"
+            />
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{projectData.owner}" />
+            android:layout_below="@+id/profilePicHolder"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/inviteBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invite"
+                android:textAllCaps="false" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/tasksRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/taskNameInput"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Tasks">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/addTaskBtn"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Add"
+                android:textAllCaps="false" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{projectData.project_name}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{projectData.project_id}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{projectData.owner}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tasksRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
 
 
 </layout>

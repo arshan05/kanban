@@ -59,6 +59,7 @@ class Signup : AppCompatActivity() {
     }
 
     fun writeNewUser(name: String, username: String, email: String, password: String) {
+        val pic = resources.getDrawable(R.drawable.profile_pic_icon)
         val user = Users(name = name, username = username, email = email)
         database.getReference().child("Users")
             .addListenerForSingleValueEvent(object : ValueEventListener {
