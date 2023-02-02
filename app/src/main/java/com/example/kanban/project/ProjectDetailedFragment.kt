@@ -40,6 +40,8 @@ class ProjectDetailedFragment : Fragment() {
         val data = arguments?.getSerializable("project_data") as? Projects
         projectDetailedBinding.projectData = data
 
+
+
         projectDetailedBinding.inviteBtn.setOnClickListener{
 
             val dataBundle = Bundle()
